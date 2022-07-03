@@ -1,5 +1,11 @@
+import NavComponent from "../nav";
+
 const Header = () => {
-  return <h1>Pet Finders</h1>;
+  return (
+    <>
+      <NavComponent />
+    </>
+  );
 };
 
 export default Header;

@@ -1,0 +1,22 @@
+img{
+    height: auto;
+    width: auto;
+    
+}
+
+
+.container-pets{
+    display: inline-block;
+    background: #DBDFFD;
+    padding: 2px;
+    margin: 10px;
+    height: 250px;
+    width: 250px;
+}
+
+.container-pets :hover{
+    cursor: pointer;
+}
+.pets-info{
+    font-size: 10px;
+}

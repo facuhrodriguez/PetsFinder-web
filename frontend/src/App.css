@@ -28,6 +28,18 @@
   color: #61dafb;
 }
 
+.card-header{
+  background-color: #646FD4 !important;
+}
+
+.card-footer{
+  min-height: 76px;
+  background-color: #646FD4 !important;
+}
+.card-body{
+  min-height: 600px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
