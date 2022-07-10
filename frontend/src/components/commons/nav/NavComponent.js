@@ -12,7 +12,6 @@ import {
 import "./navComponent.css";
 
 const NavComponent = () => {
-  console.log("nav component");
   let [openLogin, setOpenLogin] = useState(false);
   const openModal = () => {
     setOpenLogin(true);

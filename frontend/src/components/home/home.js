@@ -1,19 +1,35 @@
 import "./homestyle.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { fb } from "../../fb";
+import firebaseApp from "../../fb";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 // src={require("../../assets/images/petlost5.jpg")}
 const HomeComponent = () => {
   const [pets, setList] = useState([]);
-  console.log("entra home");
   useEffect(() => {
-    console.log("lo llama");
+    const storage = getStorage(firebaseApp);
     axios
-      .get("https://pokeapi.co/api/v2/pokemon/ditto") //https://mascotapp-api.herokuapp.com/api/pets/losts
-      .then((response) => {
-        setList(response.data);
-        console.log("entro");
+      .get("https://mascotapp-api.herokuapp.com/api/pets/losts")
+      .then(async (response) => {
+        const auxPets = response.data;
+        if (auxPets) {
+          const petsList = [];
+          for (const petsIt of auxPets) {
+            if (petsIt.photos) {
+              const [coverPhoto] = petsIt.photos;
+              const downloadUrl = await getDownloadURL(
+                ref(storage, coverPhoto)
+              );
+              const newObject = {
+                url: downloadUrl,
+                ...petsIt,
+              };
+              petsList.push(newObject);
+            }
+          }
+          setList(petsList);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -21,7 +37,7 @@ const HomeComponent = () => {
   }, []);
   return (
     <>
-      {/* <div>
+      <div>
         {pets.map((data) => {
           return (
             <div className="container-pets">
@@ -44,7 +60,7 @@ const HomeComponent = () => {
             </div>
           );
         })}
-      </div> */}
+      </div>
     </>
   );
 };
