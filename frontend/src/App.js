@@ -15,10 +15,10 @@ function App() {
       <CardBody className="container md-6">
         <SearchComonent />
         <HomeComponent />
-        <FormComponent />
       </CardBody>
       <CardFooter>
         <FooterComponent />
+        <FormComponent />
       </CardFooter>
     </>
   );

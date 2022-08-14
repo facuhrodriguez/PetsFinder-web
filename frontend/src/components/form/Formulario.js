@@ -20,7 +20,7 @@ const Formulario = () => {
             type="text"
             placeholder="nombre de la mascota"
           />
-          <label htmlFor="floatingInputCustom">Nombre de la mascota</label>
+          <label htmlFor="petName">Nombre de la mascota</label>
         </Form.Floating>
 
         <Form.Floating className="mb-3">
@@ -51,6 +51,8 @@ const Formulario = () => {
           <Form.Control id="petAge" type="text" placeholder="Edad" />
           <label htmlFor="petAge">Edad</label>
         </Form.Floating>
+        <label htmlFor="files">Imagenes</label>
+        <Form.Control id="files" type="file" name="files" multiple />
       </Form>
     </>
   );

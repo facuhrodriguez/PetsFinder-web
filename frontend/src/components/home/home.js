@@ -16,7 +16,8 @@ const HomeComponent = () => {
         if (auxPets) {
           const petsList = [];
           for (const petsIt of auxPets) {
-            if (petsIt.photos) {
+            console.log(petsIt.photos.length);
+            if (petsIt.photos.length > 0) {
               const [coverPhoto] = petsIt.photos;
               const downloadUrl = await getDownloadURL(
                 ref(storage, coverPhoto)
@@ -41,7 +42,7 @@ const HomeComponent = () => {
         {pets.map((data) => {
           return (
             <div className="container-pets">
-              <div className="p-3 pets">
+              <div className="p-2 m-0 pets">
                 <div className="image-pet mb-2">
                   <img className="img-fluid" src={data.url} />
                 </div>

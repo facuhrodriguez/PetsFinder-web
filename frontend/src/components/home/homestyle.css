@@ -1,17 +1,18 @@
 img{
-    height: auto;
-    width: auto;
+    object-fit: cover;
+    width:17vw;
+    height: 17vw !important;
+    padding: 1vw !important;
     
 }
-
 
 .container-pets{
     display: inline-block;
     background: #DBDFFD;
     padding: 2px;
     margin: 10px;
-    height: 250px;
-    width: 250px;
+    height: auto;
+    width: auto;
 }
 
 .container-pets :hover{
@@ -20,3 +21,4 @@ img{
 .pets-info{
     font-size: 10px;
 }
+
